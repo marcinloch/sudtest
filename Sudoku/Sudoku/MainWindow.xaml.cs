@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
+    using System.Threading;
+using System.Windows.Threading;
+
 
 namespace Sudoku
 {
@@ -24,13 +28,14 @@ namespace Sudoku
         public int ColumnCount = 0;
         const int x = 70;
         const int y = 70;
-
+        private int ss, mm, hh;
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
         public MainWindow()
         {
             InitializeComponent();
             InitBoard();
-            int[,] tablica2d = new int[x * 9, y * 9];
+            
 
         }
 
@@ -57,9 +62,53 @@ namespace Sudoku
                     text.Background = Brushes.LightGray;
                     TextBox.Add(text);
                     Grid.Children.Add(text);
-
+                   
                 }
             }
+            
+        }
+
+       private void Window_Loaded(object sender,RoutedEventArgs e)
+        {
+           
+            dispatcherTimer.Tick += new EventHandler(Timer_Tick);
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+           
+        }
+        public void Timer_Tick(object sender,EventArgs e)
+        {
+
+            ss+=1;
+            if (ss == 60)
+            {
+                ss = 0;
+                mm += 1;
+            }
+            if (mm == 60)
+            {
+                mm = 0;
+                hh += 1;
+            }
+
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
+           
+
+           
+        }
+        private void Start_Click(object sender,RoutedEventArgs e)
+        {
+
+            dispatcherTimer.Start();
+            
+        }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.IsEnabled = false;
+            ss =0;
+            mm = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
     }
 }

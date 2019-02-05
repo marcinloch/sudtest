@@ -23,12 +23,15 @@
         <Line X1="0" X2="567" Y1="190" Y2="190" Stroke="Black" StrokeThickness="3" Margin="0,132,30,10" HorizontalAlignment="Right"/>
         <Line X1="0" X2="567" Y1="380" Y2="380" Stroke="Black" StrokeThickness="3" Margin="0,132,30,10" HorizontalAlignment="Right"/>
         <Label x:Name="ProgramName" Content="Sudoku" HorizontalAlignment="Left" Height="81" Margin="20,20,0,0" VerticalAlignment="Top" Width="190" FontSize="48" FontWeight="Bold"/>
-        <Label x:Name="Timer" Content="Stoper" HorizontalAlignment="Center" Height="57" Margin="0,44,0,0" VerticalAlignment="Top" Width="134" FontSize="36"/>
+        <Label x:Name="Timer" Content="Stoper:"  Height="44" Margin="319,40,400,0" VerticalAlignment="Top" FontSize="24"/>
         <Button x:Name="LevelHard" Content="Trudny" Height="30" Margin="0,44,9.6,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" FontSize="18"/>
         <Button x:Name="LevelMedium" Content="Średni" HorizontalAlignment="Right" Height="30" Margin="0,44,90,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
         <Button x:Name="LevelEasy" Content="Łatwy" HorizontalAlignment="Right" Height="30" Margin="0,44,170,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
-        <Label x:Name="ResultsName" Content="Wyniki:" HorizontalAlignment="Left" Height="43" Margin="10,157,0,0" VerticalAlignment="Top" Width="114" FontSize="24"/>
-        <ListBox x:Name="Results" HorizontalAlignment="Left" Height="217" Margin="10,205,0,0" VerticalAlignment="Top" Width="159"/>
+        <Label x:Name="ResultsName" Content="Wyniki:" HorizontalAlignment="Left" Height="43" Margin="10,254,0,0" VerticalAlignment="Top" Width="114" FontSize="24"/>
+        <ListBox x:Name="Results" HorizontalAlignment="Left" Height="217" Margin="10,302,0,0" VerticalAlignment="Top" Width="159"/>
+        <Button x:Name="Start" Content="START" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="Start_Click"/>
+        <Label x:Name="Time" Content="00:00:00" HorizontalAlignment="Left" Margin="414,44,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.63,0.467" Loaded="Window_Loaded" FontSize="20"/>
+        <Button x:Name="NewGame" Content="Nowa gra" HorizontalAlignment="Left" Margin="25,185,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="NewGame_Click"/>
 
     </Grid>
 
