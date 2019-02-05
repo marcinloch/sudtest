@@ -20,9 +20,48 @@ namespace Sudoku
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<TextBox> TextBox = new List<TextBox>();
+        public int ColumnCount = 0;
+        const int x = 70;
+        const int y = 70;
+
+
         public MainWindow()
         {
             InitializeComponent();
+            InitBoard();
+            int[,] tablica2d = new int[x * 9, y * 9];
+
+        }
+
+        void InitBoard()
+        {
+
+            for (int i = 0; i < 9; i++)
+            {
+                ColumnDefinition column = new ColumnDefinition();
+                column.Width = new GridLength(1, GridUnitType.Star);
+                Grid.ColumnDefinitions.Add(column);
+                RowDefinition row = new RowDefinition();
+                row.Height = new GridLength(1, GridUnitType.Star);
+                Grid.RowDefinitions.Add(row);
+
+            }
+            for (int i = 0; i <9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    TextBox text = new TextBox();
+                    Grid.SetRow(text, i);
+                    Grid.SetColumn(text, j);
+                    text.Background = Brushes.LightGray;
+                    TextBox.Add(text);
+                    Grid.Children.Add(text);
+
+                }
+            }
         }
     }
 }
+
+
