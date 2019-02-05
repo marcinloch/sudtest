@@ -1,0 +1,30 @@
+﻿<Window x:Class="Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="630" Width="630" Background="LightGray">
+    <Grid >
+
+        <Grid Name="Grid" Height="630" Width="630">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition DataContext="column"  />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition DataContext="row"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+
+        <Line X1="190" X2="190" Y1="0" Y2="567" Stroke="Black" StrokeThickness="3"/>
+        <Line X1="380" X2="380" Y1="0" Y2="567" Stroke="Black" StrokeThickness="3"/>
+        <Line X1="0" X2="567" Y1="190" Y2="190" Stroke="Black" StrokeThickness="3"/>
+        <Line X1="0" X2="567" Y1="380" Y2="380" Stroke="Black" StrokeThickness="3"/>
+
+
+    </Grid>
+
+</Window>
