@@ -68,13 +68,25 @@ namespace Sudoku
                     text.FontSize = 30;
                     text.TextAlignment = TextAlignment.Center;
                     Grid.Children.Add(text);
+                    text.PreviewTextInput += text_PreviewTextInput;
 
                 }
             }
 
-            
-
+         
         }
+
+        private void text_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !Important(((TextBox)sender).Text + e.Text);
+        }
+
+        public static bool Important(string str)
+        {
+            int i;
+            return int.TryParse(str, out i) && i >= 1 && i <= 9;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
