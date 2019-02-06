@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Sudoku
 {
     /// <summary>
@@ -30,7 +31,7 @@ namespace Sudoku
         {
             InitializeComponent();
             InitBoard();
-            int[,] tablica2d = new int[x * 9, y * 9];
+            
 
         }
 
@@ -56,10 +57,31 @@ namespace Sudoku
                     Grid.SetColumn(text, j);
                     text.Background = Brushes.LightGray;
                     TextBox.Add(text);
+                    text.MaxLength = 1;
+                    text.FontSize = 30;
+                    text.TextAlignment = TextAlignment.Center;
                     Grid.Children.Add(text);
 
                 }
             }
+        }
+
+      
+
+        private void LevelMedium_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void LevelHard_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
+        private void LevelEasy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

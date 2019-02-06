@@ -24,9 +24,9 @@
         <Line X1="0" X2="567" Y1="380" Y2="380" Stroke="Black" StrokeThickness="3" Margin="0,132,30,10" HorizontalAlignment="Right"/>
         <Label x:Name="ProgramName" Content="Sudoku" HorizontalAlignment="Left" Height="81" Margin="20,20,0,0" VerticalAlignment="Top" Width="190" FontSize="48" FontWeight="Bold"/>
         <Label x:Name="Timer" Content="Stoper" HorizontalAlignment="Center" Height="57" Margin="0,44,0,0" VerticalAlignment="Top" Width="134" FontSize="36"/>
-        <Button x:Name="LevelHard" Content="Trudny" Height="30" Margin="0,44,9.6,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" FontSize="18"/>
-        <Button x:Name="LevelMedium" Content="Średni" HorizontalAlignment="Right" Height="30" Margin="0,44,90,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
-        <Button x:Name="LevelEasy" Content="Łatwy" HorizontalAlignment="Right" Height="30" Margin="0,44,170,0" VerticalAlignment="Top" Width="75" FontSize="18"/>
+        <Button x:Name="LevelHard" Content="Trudny" Height="30" Margin="0,44,9.6,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" FontSize="18" Click="LevelHard_Click"/>
+        <Button x:Name="LevelMedium" Content="Średni" HorizontalAlignment="Right" Height="30" Margin="0,44,90,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelMedium_Click"/>
+        <Button x:Name="LevelEasy" Content="Łatwy" HorizontalAlignment="Right" Height="30" Margin="0,44,170,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelEasy_Click"/>
         <Label x:Name="ResultsName" Content="Wyniki:" HorizontalAlignment="Left" Height="43" Margin="10,157,0,0" VerticalAlignment="Top" Width="114" FontSize="24"/>
         <ListBox x:Name="Results" HorizontalAlignment="Left" Height="217" Margin="10,205,0,0" VerticalAlignment="Top" Width="159"/>
 
