@@ -70,8 +70,14 @@ namespace Sudoku
                     Grid.Children.Add(text);
                     text.PreviewTextInput += text_PreviewTextInput;
 
+                    
+
+                    
+
                 }
+
             }
+           
 
          
         }
@@ -146,6 +152,30 @@ namespace Sudoku
 
         private void LevelEasy_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+
+        public void Eng_click(object sender, RoutedEventArgs e)
+        {
+            English.IsEnabled = true;
+
+            LevelEasy.Content = "Easy";
+            LevelMedium.Content = "Medium";
+            LevelHard.Content = "Hard";
+
+
+
+
+        }
+        public void Pl_click(object sender, RoutedEventArgs e)
+        {
+            Polish.IsEnabled = true;
+
+            LevelEasy.Content = "Łatwy";
+            LevelMedium.Content = "Średni";
+            LevelHard.Content = "Trudny";
+
 
         }
     }
