@@ -41,9 +41,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button x:Name="Start" Content="START" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="Start_Click"/>
         <Label x:Name="Time" Content="00:00:00" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.63,0.467" Loaded="Window_Loaded" FontSize="24" FontWeight="Bold"/>
-        <Button x:Name="NewGame" Content="Nowa gra" HorizontalAlignment="Left" Margin="25,185,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="NewGame_Click"/>
         <Button x:Name="Polish"  Content="" HorizontalAlignment="Left" Margin="772,10,0,0" VerticalAlignment="Top" Width="33" Click="Pl_click">
             <Button.Background>
                 <ImageBrush ImageSource="PL.png"/>
@@ -54,6 +52,7 @@
                 <ImageBrush ImageSource="EN.png"/>
             </Button.Background>
         </Button>
+        <Button x:Name="Info" Content="INFO" HorizontalAlignment="Left" Margin="25,680,0,0" VerticalAlignment="Top" Width="75" Height="34" Foreground="#FFF1E9E9" Background="#FF090202" FontFamily="Tahoma" FontSize="18" Click="Info_click"/>
 
     </Grid>
 

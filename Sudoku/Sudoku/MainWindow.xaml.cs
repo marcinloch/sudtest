@@ -32,6 +32,7 @@ namespace Sudoku
         const int y = 70;
         private int ss, mm, hh;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        SecondWindow twowindow = new SecondWindow();
 
 
         public MainWindow()
@@ -120,39 +121,41 @@ namespace Sudoku
 
 
         }
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
+       
 
+
+        private void LevelMedium_Click(object sender, RoutedEventArgs e)
+        {
             dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
+            mm = 0;
+            hh = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
 
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+        private void LevelHard_Click(object sender, RoutedEventArgs e)
         {
-            dispatcherTimer.IsEnabled = false;
-            ss = 0;
+            dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
             mm = 0;
             hh = 0;
             hh = 0;
             Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
 
-
-
-        private void LevelMedium_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void LevelHard_Click(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
-
         private void LevelEasy_Click(object sender, RoutedEventArgs e)
         {
-
+            dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
+            mm = 0;
+            hh = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
 
 
@@ -163,7 +166,7 @@ namespace Sudoku
             LevelEasy.Content = "Easy";
             LevelMedium.Content = "Medium";
             LevelHard.Content = "Hard";
-
+            twowindow.two.Text = "asasas";
 
 
 
@@ -176,6 +179,13 @@ namespace Sudoku
             LevelMedium.Content = "Średni";
             LevelHard.Content = "Trudny";
 
+
+        }
+
+        private void Info_click(object sender, RoutedEventArgs e)
+        {
+            SecondWindow secondw = new SecondWindow();
+            secondw.Show();
 
         }
     }
