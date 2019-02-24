@@ -82,7 +82,11 @@ namespace Sudoku
 
          
         }
-
+        /// <summary>
+        /// Metoda pozwalająca na wpisanie w tablicy samych cyfr
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !Important(((TextBox)sender).Text + e.Text);
@@ -101,6 +105,12 @@ namespace Sudoku
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
 
         }
+
+        /// <summary>
+        /// Metoda implementująca standardową reprezentacje tekstową czasu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Timer_Tick(object sender, EventArgs e)
         {
 
@@ -158,7 +168,11 @@ namespace Sudoku
             Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
 
-
+        /// <summary>
+        /// Metoda służąca do zmiany na język Angielski
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Eng_click(object sender, RoutedEventArgs e)
         {
             English.IsEnabled = true;
@@ -166,11 +180,16 @@ namespace Sudoku
             LevelEasy.Content = "Easy";
             LevelMedium.Content = "Medium";
             LevelHard.Content = "Hard";
-            twowindow.two.Text = "asasas";
+            
 
 
 
         }
+        /// <summary>
+        /// Metoda służąca do zmiany na język Polski
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Pl_click(object sender, RoutedEventArgs e)
         {
             Polish.IsEnabled = true;
@@ -181,7 +200,11 @@ namespace Sudoku
 
 
         }
-
+        /// <summary>
+        /// Metoda do owierania drugiego okna z inforamcją dotyczącą gry za pomocą przycisku INFO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Info_click(object sender, RoutedEventArgs e)
         {
             SecondWindow secondw = new SecondWindow();

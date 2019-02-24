@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="SecondWindow" Height="400" Width="800" Background="#FFAEA6A6">
     <Grid>
-        <TextBlock x:Name="two" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" FontSize="24" FontWeight="Black" Text="Sudoku-łamigłówka, której celem jest wypełnienie diagramu 9 × 9 w taki sposób, aby w każdym wierszu, w każdej kolumnie i w każdym z dziewięciu pogrubionych kwadratów 3 × 3 znalazło się po jednej cyfrze od 1 do 9." VerticalAlignment="Top" Height="196"/>
+        <TextBlock x:Name="two" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" FontSize="24" FontWeight="Bold" Text="Sudoku-łamigłówka, której celem jest wypełnienie diagramu 9 × 9 w taki sposób, aby w każdym wierszu, w każdej kolumnie i w każdym z dziewięciu pogrubionych kwadratów 3 × 3 znalazło się po jednej cyfrze od 1 do 9." VerticalAlignment="Top" Height="196"/>
+        <Button x:Name="Polish" Content="" HorizontalAlignment="Left" Margin="734,10,0,0" VerticalAlignment="Top" Width="33" Height="21" Click="P_click">
+            <Button.Background>
+                <ImageBrush ImageSource="PL.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="English" Content="" HorizontalAlignment="Left" Margin="692,10,0,0" VerticalAlignment="Top" Width="33" Height="21" Click="E_click">
+            <Button.Background>
+                <ImageBrush ImageSource="EN.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
