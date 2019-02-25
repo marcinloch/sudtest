@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="SecondWindow" Height="400" Width="800" Background="#FFAEA6A6">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" FontSize="24" FontWeight="Bold" Text="Sudoku-łamigłówka, której celem jest wypełnienie diagramu 9 × 9 w taki sposób, aby w każdym wierszu, w każdej kolumnie i w każdym z dziewięciu pogrubionych kwadratów 3 × 3 znalazło się po jednej cyfrze od 1 do 9." VerticalAlignment="Top"/>
+        <TextBlock x:Name="two" HorizontalAlignment="Left" Margin="0,39,0,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" Text="Sudoku-łamigłówka, której celem jest wypełnienie diagramu 9 × 9 w taki sposób, aby w każdym wierszu, w każdej kolumnie i w każdym z dziewięciu pogrubionych kwadratów 3 × 3 znalazło się po jednej cyfrze od 1 do 9." VerticalAlignment="Top"/>
+        <Button x:Name="pol"  Content="PL" HorizontalAlignment="Left" Margin="723,10,0,0" VerticalAlignment="Top" Width="33" Click="P_click" Background="#FFEB5454"/>
+        <Button x:Name="eng" Content="EN" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Width="33" Click="E_click" Background="#FF2D9FDA"/>
     </Grid>
 </Window>

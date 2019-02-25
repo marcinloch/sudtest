@@ -45,7 +45,7 @@
         <Button x:Name="Koniec" Content="Stop" HorizontalAlignment="Left" Margin="25,612,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="Koniec_click"/>
         <Button x:Name="Polish" Content="PL" HorizontalAlignment="Left" Margin="756,10,0,0" VerticalAlignment="Top" Width="33" FontWeight="Bold" Click="Pl_click" Background="#FFE59696"/>
         <Button x:Name="English" Content="EN" HorizontalAlignment="Left" Margin="714,10,0,0" VerticalAlignment="Top" Width="33" FontWeight="Bold" Click="Eng_click" Background="#FF38ABD6"/>
-        <Button  x:Name="Info" Content="Info" HorizontalAlignment="Left" Margin="34,668,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="Info_click" Background="#FF968989" Foreground="#FF080707" FontWeight="Bold" FontSize="22" FontFamily="Segoe UI Black"/>
+        <Button  x:Name="Info" Content="Info" HorizontalAlignment="Left" Margin="34,668,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="Info_click" Background="#FF766A6A" Foreground="#FF080707" FontWeight="Bold" FontSize="22" FontFamily="Segoe UI Black"/>
 
     </Grid>
 
