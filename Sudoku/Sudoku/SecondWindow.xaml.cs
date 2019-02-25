@@ -24,16 +24,16 @@ namespace Sudoku
             InitializeComponent();
         }
 
-        public void P_click(object sender, RoutedEventArgs e)
-        {
-            Polish.IsEnabled = true;
-        }
-        public void E_click(object sender,RoutedEventArgs e)
-        {
-            English.IsEnabled = true;
-            two.FontSize = 24;
-            two.FontWeight = FontWeights.Bold;
-            two.Text = "Sudoku-the objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.";
-        }
+        //public void P_click(object sender, RoutedEventArgs e)
+        //{
+        //    Polish.IsEnabled = true;
+        //}
+        //public void E_click(object sender,RoutedEventArgs e)
+        //{
+        //    //English.IsEnabled = true;
+        //    //two.FontSize = 24;
+        //    //two.FontWeight = FontWeights.Bold;
+        //    //two.Text = "Sudoku-the objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.";
+        //}
     }
 }

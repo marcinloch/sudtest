@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku"
         mc:Ignorable="d"
-             Title="Sudoku" Height="780.165" Background="LightGray" Width="822" MinWidth="800" MinHeight="780">
+             Title="Sudoku" Height="780.165" Background="#FF8E9193" Width="822" MinWidth="800" MinHeight="780">
     <Grid Height="723" Margin="0,13,2,13">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,16 +25,27 @@
         <Line X1="380" X2="380" Y1="0" Y2="567" Stroke="Black" StrokeThickness="3" Margin="0,132,408.4,10" HorizontalAlignment="Right"/>
         <Line X1="0" X2="567" Y1="190" Y2="190" Stroke="Black" StrokeThickness="3" Margin="0,132,30.4,10" HorizontalAlignment="Right"/>
         <Line X1="0" X2="567" Y1="380" Y2="380" Stroke="Black" StrokeThickness="3" Margin="0,132,30.4,10" HorizontalAlignment="Right"/>
-        <Label x:Name="ProgramName" Content="Sudoku" HorizontalAlignment="Left" Height="81" Margin="20,20,0,0" VerticalAlignment="Top" Width="190" FontSize="48" FontWeight="Bold"/>
-
-        <Label x:Name="Timer" Content="Stoper:"  Height="44" Margin="320,40,400.4,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="LevelHard" Content="Trudny" Height="30" Margin="0,44,9.4,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" FontSize="18" Click="LevelHard_Click"/>
-        <Button x:Name="LevelMedium" Content="Średni" HorizontalAlignment="Right" Height="30" Margin="0,44,90.4,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelMedium_Click"/>
-        <Button x:Name="LevelEasy" Content="Łatwy" HorizontalAlignment="Right" Height="30" Margin="0,44,170.4,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelEasy_Click"/>
-        <Button x:Name="Start" Content="START" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="Start_Click"/>
-        <Label x:Name="Time" Content="00:00:00" HorizontalAlignment="Left" Margin="415,44,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.63,0.467" Loaded="Window_Loaded" FontSize="20"/>
+        <Label x:Name="ProgramName" Content="Sudoku" HorizontalAlignment="Left" Height="81" Margin="20,20,0,0" VerticalAlignment="Top" Width="205" FontSize="48" FontWeight="Bold" FontFamily="Kristen ITC" Foreground="#FF8B0A0A"/>
+        <Button x:Name="LevelHard" Content="Trudny" Height="30" Margin="0,44,25.4,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" FontSize="18" Click="LevelHard_Click" Background="#FFDD0707" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="LevelMedium" Content="Średni" HorizontalAlignment="Right" Height="30" Margin="0,44,116.4,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelMedium_Click" Background="#FFE73434" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="LevelEasy" Content="Łatwy" HorizontalAlignment="Right" Height="30" Margin="0,44,205.4,0" VerticalAlignment="Top" Width="75" FontSize="18" Click="LevelEasy_Click" Background="#FFED5252" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label x:Name="Time" Content="00:00:00" HorizontalAlignment="Left" Margin="368,44,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.63,0.467" Loaded="Window_Loaded" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="Koniec" Content="Stop" HorizontalAlignment="Left" Margin="25,612,0,0" VerticalAlignment="Top" Width="107" Height="39" FontSize="20" FontFamily="Adobe Hebrew" Click="Koniec_click"/>
-        <Label x:Name="Niewiem" Content="chuuuuj" HorizontalAlignment="Left" Margin="41,223,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="Polish" Content="PL" HorizontalAlignment="Left" Margin="756,10,0,0" VerticalAlignment="Top" Width="33" FontWeight="Bold" Click="Pl_click" Background="#FFE59696"/>
+        <Button x:Name="English" Content="EN" HorizontalAlignment="Left" Margin="714,10,0,0" VerticalAlignment="Top" Width="33" FontWeight="Bold" Click="Eng_click" Background="#FF38ABD6"/>
+        <Button  x:Name="Info" Content="Info" HorizontalAlignment="Left" Margin="34,668,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="Info_click" Background="#FF968989" Foreground="#FF080707" FontWeight="Bold" FontSize="22" FontFamily="Segoe UI Black"/>
 
     </Grid>
 

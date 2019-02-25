@@ -122,6 +122,11 @@ namespace Sudoku
             return true;
         }
 
+        /// <summary>
+        /// Metoda pozwalająca na wpisanie w tablicy samych cyfr
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !Important(((TextBox)sender).Text + e.Text);
@@ -141,6 +146,12 @@ namespace Sudoku
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
 
         }
+
+        /// <summary>
+        /// Metoda implementująca standardową reprezentacje tekstową czasu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Timer_Tick(object sender, EventArgs e)
         {
 
@@ -161,12 +172,7 @@ namespace Sudoku
 
 
         }
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-
-            dispatcherTimer.Start();
-
-        }
+       
 
         private void StopTimer()
         {
@@ -198,6 +204,14 @@ namespace Sudoku
         {
             sudoku.Delete(Random(53, 60));
             InitBoard();
+            dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
+            mm = 0;
+            hh = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
+
         }
         /// <summary>
         /// Generowanie planszy o trudnym poziomie trudności
@@ -208,6 +222,14 @@ namespace Sudoku
         {
             sudoku.Delete(Random(61, 64));
             InitBoard();
+            dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
+            mm = 0;
+            hh = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
+
         }
 
         /// <summary>
@@ -219,6 +241,54 @@ namespace Sudoku
         {
             sudoku.Delete(Random(46, 52));
             InitBoard();
+            dispatcherTimer.Start();
+            if (LevelMedium.IsEnabled == true)
+                ss = 0;
+            mm = 0;
+            hh = 0;
+            hh = 0;
+            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
+
+        }
+
+        /// <summary>
+        /// Metoda służąca do zmiany na język Angielski
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Eng_click(object sender, RoutedEventArgs e)
+        {
+            English.IsEnabled = true;
+
+            LevelEasy.Content = "Easy";
+            LevelMedium.Content = "Medium";
+            LevelHard.Content = "Hard";
+
+
+
+
+        }
+        /// <summary>
+        /// Metoda służąca do zmiany na język Polski
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Pl_click(object sender, RoutedEventArgs e)
+        {
+            Polish.IsEnabled = true;
+
+            LevelEasy.Content = "Łatwy";
+            LevelMedium.Content = "Średni";
+            LevelHard.Content = "Trudny";
+
+
+        }
+
+        private void Info_click(object sender, RoutedEventArgs e)
+        {
+           SecondWindow secondw = new SecondWindow();
+            secondw.Show();
+
         }
     }
 }
