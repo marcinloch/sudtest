@@ -32,6 +32,7 @@ namespace Sudoku
         private int ss, mm, hh;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         Plansza sudoku = new Plansza();
+        char language = 'p';
         bool levelclick = false;
 
         public MainWindow()
@@ -114,7 +115,10 @@ namespace Sudoku
             line2.Stroke = Brushes.Red;
             line3.Stroke = Brushes.Red;
             line4.Stroke = Brushes.Red;
-            TestWynik.Content = "Coś jest nie tak";
+            if(language == 'p')
+                TestWynik.Content = "Coś jest nie tak";
+            if (language == 'e')
+                TestWynik.Content = "Wrong...";
         }
         private void Default()
         {
@@ -133,7 +137,11 @@ namespace Sudoku
             line2.Stroke = Brushes.Green;
             line3.Stroke = Brushes.Green;
             line4.Stroke = Brushes.Green;
-            TestWynik.Content = "Gratulacje !";
+            if (language == 'p')
+                TestWynik.Content = "Gratulacje !";
+            if (language == 'e')
+                TestWynik.Content = "Congratulations!";
+            
         }
         /// <summary>
         /// Metoda sprawdzająca czy pola zostały poprawnie uzupełnione
@@ -172,7 +180,11 @@ namespace Sudoku
         {
             e.Handled = !Important(((TextBox)sender).Text + e.Text);
         }
-
+        /// <summary>
+        /// zamienianie tekstu z textboxa na liczbę od 1-9
+        /// </summary>
+        /// <param name="str">zawartość textboxa</param>
+        /// <returns>int 1-9</returns>
         public static bool Important(string str)
         {
             int i;
@@ -182,10 +194,8 @@ namespace Sudoku
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             dispatcherTimer.Tick += new EventHandler(Timer_Tick);
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
-
         }
 
         /// <summary>
@@ -209,12 +219,11 @@ namespace Sudoku
             }
 
             Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
-
-
-
         }
        
-
+        /// <summary>
+        /// Metoda zatrzymująca stoper
+        /// </summary>
         private void StopTimer()
         {
             dispatcherTimer.IsEnabled = false;
@@ -309,14 +318,14 @@ namespace Sudoku
         public void Eng_click(object sender, RoutedEventArgs e)
         {
             English.IsEnabled = true;
-
+            language = 'e';
+            if (TestWynik.Content != "")
+                if (language == 'e')
+                    TestWynik.Content = "Wrong...";
             LevelEasy.Content = "Easy";
             LevelMedium.Content = "Medium";
             LevelHard.Content = "Hard";
-
-
-
-
+            Koniec.Content = "Check";
         }
         /// <summary>
         /// Metoda służąca do zmiany na język Polski
@@ -326,14 +335,20 @@ namespace Sudoku
         public void Pl_click(object sender, RoutedEventArgs e)
         {
             Polish.IsEnabled = true;
-
+            language = 'p';
+            if (TestWynik.Content != "")
+                if (language == 'p')
+                    TestWynik.Content = "Coś jest nie tak";
             LevelEasy.Content = "Łatwy";
             LevelMedium.Content = "Średni";
             LevelHard.Content = "Trudny";
-
-
+            Koniec.Content = "Sprawdź";
         }
-
+        /// <summary>
+        /// Metoda otwierająca okno "SecondWindow"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Info_click(object sender, RoutedEventArgs e)
         {
            SecondWindow secondw = new SecondWindow();
