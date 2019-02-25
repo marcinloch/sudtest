@@ -31,12 +31,7 @@ namespace Sudoku
         const int y = 70;
         private int ss, mm, hh;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
-<<<<<<< HEAD
         Plansza sudoku = new Plansza();
-=======
-        SecondWindow twowindow = new SecondWindow();
-
->>>>>>> 9479306592b1c27a1636af67f4ec97627c7edbd4
 
         public MainWindow()
         {
@@ -83,14 +78,8 @@ namespace Sudoku
                     Grid.Children.Add(text);
                     text.PreviewTextInput += text_PreviewTextInput;
 
-                    
-
-                    
-
                 }
-
             }
-           
 
 
         }
@@ -132,11 +121,7 @@ namespace Sudoku
             }
             return true;
         }
-        /// <summary>
-        /// Metoda pozwalająca na wpisanie w tablicy samych cyfr
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void text_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !Important(((TextBox)sender).Text + e.Text);
@@ -156,12 +141,6 @@ namespace Sudoku
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
 
         }
-
-        /// <summary>
-        /// Metoda implementująca standardową reprezentacje tekstową czasu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         public void Timer_Tick(object sender, EventArgs e)
         {
 
@@ -182,30 +161,17 @@ namespace Sudoku
 
 
         }
-       
-
-
-        private void LevelMedium_Click(object sender, RoutedEventArgs e)
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
+
             dispatcherTimer.Start();
-            if (LevelMedium.IsEnabled == true)
-                ss = 0;
-            mm = 0;
-            hh = 0;
-            hh = 0;
-            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
 
         }
 
-<<<<<<< HEAD
         private void StopTimer()
-=======
-        private void LevelHard_Click(object sender, RoutedEventArgs e)
->>>>>>> 9479306592b1c27a1636af67f4ec97627c7edbd4
         {
-            dispatcherTimer.Start();
-            if (LevelMedium.IsEnabled == true)
-                ss = 0;
+            dispatcherTimer.IsEnabled = false;
+            ss = 0;
             mm = 0;
             hh = 0;
             hh = 0;
@@ -223,7 +189,6 @@ namespace Sudoku
             return rnd.Next(a, b + 1);
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// Genegowanie planszy o średnim poziomie trudności
         /// </summary>
@@ -243,46 +208,8 @@ namespace Sudoku
         {
             sudoku.Delete(Random(61, 64));
             InitBoard();
-=======
-        private void LevelEasy_Click(object sender, RoutedEventArgs e)
-        {
-            dispatcherTimer.Start();
-            if (LevelMedium.IsEnabled == true)
-                ss = 0;
-            mm = 0;
-            hh = 0;
-            hh = 0;
-            Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
 
-        /// <summary>
-        /// Metoda służąca do zmiany na język Angielski
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Eng_click(object sender, RoutedEventArgs e)
-        {
-            English.IsEnabled = true;
-
-            LevelEasy.Content = "Easy";
-            LevelMedium.Content = "Medium";
-            LevelHard.Content = "Hard";
-            
-
-
-
->>>>>>> 9479306592b1c27a1636af67f4ec97627c7edbd4
-        }
-        /// <summary>
-        /// Metoda służąca do zmiany na język Polski
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Pl_click(object sender, RoutedEventArgs e)
-        {
-            Polish.IsEnabled = true;
-
-<<<<<<< HEAD
         /// <summary>
         /// Generowanie l=planszy o łatwym poziomie trudnosci
         /// </summary>
@@ -292,24 +219,6 @@ namespace Sudoku
         {
             sudoku.Delete(Random(46, 52));
             InitBoard();
-=======
-            LevelEasy.Content = "Łatwy";
-            LevelMedium.Content = "Średni";
-            LevelHard.Content = "Trudny";
-
-
-        }
-        /// <summary>
-        /// Metoda do owierania drugiego okna z inforamcją dotyczącą gry za pomocą przycisku INFO
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Info_click(object sender, RoutedEventArgs e)
-        {
-            SecondWindow secondw = new SecondWindow();
-            secondw.Show();
-
->>>>>>> 9479306592b1c27a1636af67f4ec97627c7edbd4
         }
     }
 }
