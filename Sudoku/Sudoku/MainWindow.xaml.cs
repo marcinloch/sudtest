@@ -19,32 +19,31 @@ using System.Windows.Threading;
 
 namespace Sudoku
 {
-
-
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        static Random rnd = new Random();
         public List<TextBox> TextBox = new List<TextBox>();
         public int ColumnCount = 0;
         const int x = 70;
         const int y = 70;
         private int ss, mm, hh;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
-
+        Plansza sudoku = new Plansza();
 
         public MainWindow()
         {
             InitializeComponent();
-            InitBoard();
-            
 
+            CreateColRow();
         }
-
-        void InitBoard()
+        /// <summary>
+        /// Metoda tworząca kolumny i wiersze w gridzie
+        /// </summary>
+        void CreateColRow()
         {
-
             for (int i = 0; i < 9; i++)
             {
                 ColumnDefinition column = new ColumnDefinition();
@@ -55,11 +54,20 @@ namespace Sudoku
                 Grid.RowDefinitions.Add(row);
 
             }
-            for (int i = 0; i <9; i++)
+        }
+        /// <summary>
+        /// Metoda tworząca textboxy i dająca je w odpowiednie pola w gridzie
+        /// </summary>
+        void InitBoard()
+        {
+            
+            for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
                     TextBox text = new TextBox();
+                    text.Name = string.Format("Field{0}_{1}", i, j);
+                    text.Text = sudoku.sud[i, j] != 0 ? sudoku.sud[i, j].ToString() : "";
                     Grid.SetRow(text, i);
                     Grid.SetColumn(text, j);
                     text.Background = Brushes.LightGray;
@@ -73,7 +81,45 @@ namespace Sudoku
                 }
             }
 
-         
+
+        }
+        /// <summary>
+        /// Metoda 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Koniec_click(object sender, RoutedEventArgs e)
+        {
+            StopTimer();
+            if (CheckingGoodFit() == true)
+                MessageBox.Show("You win.\nCongratulations.");
+        }
+        /// <summary>
+        /// Metoda sprawdzająca czy pola zostały poprawnie uzupełnione
+        /// </summary>
+        /// <returns>true - jeżeli pola zostały poprawnie uzupełnione</returns>
+        private bool CheckingGoodFit()
+        {
+        
+            int pomoc=0;
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+
+                    int index = TextBox.FindIndex(0, TextBox.Count,
+                                text => text.Name == string.Format("Field{0}_{1}", i, j));
+                    if (TextBox[index].Text != "")
+                        pomoc = Convert.ToInt32(TextBox[index].Text);
+
+                    if (sudoku.tab[i, j] != pomoc)
+                    {
+                        return false;
+                    }
+                    pomoc = 0;
+                }
+            }
+            return true;
         }
 
         private void text_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -86,6 +132,7 @@ namespace Sudoku
             int i;
             return int.TryParse(str, out i) && i >= 1 && i <= 9;
         }
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -121,7 +168,7 @@ namespace Sudoku
 
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+        private void StopTimer()
         {
             dispatcherTimer.IsEnabled = false;
             ss = 0;
@@ -130,23 +177,48 @@ namespace Sudoku
             hh = 0;
             Time.Content = string.Format("{0}:{1}:{2}", hh.ToString().PadLeft(2, '0'), mm.ToString().PadLeft(2, '0'), ss.ToString().PadLeft(2, '0'));
         }
+        
+        /// <summary>
+        /// Losowanie ilości liczb do usunięcia 
+        /// </summary>
+        /// <param name="a">Minimalny zakres do udunięcia</param>
+        /// <param name="b">Maksymalny zakres do usunięcia</param>
+        /// <returns></returns>
+        private int Random(int a, int b)
+        {
+            return rnd.Next(a, b + 1);
+        }
 
-
-
+        /// <summary>
+        /// Genegowanie planszy o średnim poziomie trudności
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LevelMedium_Click(object sender, RoutedEventArgs e)
         {
-            
+            sudoku.Delete(Random(53, 60));
+            InitBoard();
         }
-
+        /// <summary>
+        /// Generowanie planszy o trudnym poziomie trudności
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LevelHard_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            sudoku.Delete(Random(61, 64));
+            InitBoard();
         }
 
+        /// <summary>
+        /// Generowanie l=planszy o łatwym poziomie trudnosci
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LevelEasy_Click(object sender, RoutedEventArgs e)
         {
-
+            sudoku.Delete(Random(46, 52));
+            InitBoard();
         }
     }
 }
