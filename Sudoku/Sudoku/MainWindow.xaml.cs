@@ -96,22 +96,44 @@ namespace Sudoku
                 if (CheckingGoodFit() == true)
                 {
                     StopTimer();
-                    line1.Stroke = Brushes.Green;
-                    line2.Stroke = Brushes.Green;
-                    line3.Stroke = Brushes.Green;
-                    line4.Stroke = Brushes.Green;
-                    TestWynik.Content = "Gratulacje !";
+                    Correct();
                     levelclick = false;
                 }
                 else
                 {
-                    line1.Stroke = Brushes.Red;
-                    line2.Stroke = Brushes.Red;
-                    line3.Stroke = Brushes.Red;
-                    line4.Stroke = Brushes.Red;
-                    TestWynik.Content = "Coś jest nie tak";
+                    Wrong();
                 }
             }
+        }
+        /// <summary>
+        /// Zmienia wygląd jeżeli odpowiedź jest zła
+        /// </summary>
+        private void Wrong()
+        {
+            line1.Stroke = Brushes.Red;
+            line2.Stroke = Brushes.Red;
+            line3.Stroke = Brushes.Red;
+            line4.Stroke = Brushes.Red;
+            TestWynik.Content = "Coś jest nie tak";
+        }
+        private void Default()
+        {
+            line1.Stroke = Brushes.Black;
+            line2.Stroke = Brushes.Black;
+            line3.Stroke = Brushes.Black;
+            line4.Stroke = Brushes.Black;
+            TestWynik.Content = "";
+        }
+        /// <summary>
+        /// Zmienia wygląd Jeżeli odpowiedź jest dobra
+        /// </summary>
+        private void Correct()
+        {
+            line1.Stroke = Brushes.Green;
+            line2.Stroke = Brushes.Green;
+            line3.Stroke = Brushes.Green;
+            line4.Stroke = Brushes.Green;
+            TestWynik.Content = "Gratulacje !";
         }
         /// <summary>
         /// Metoda sprawdzająca czy pola zostały poprawnie uzupełnione
@@ -221,6 +243,7 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelMedium_Click(object sender, RoutedEventArgs e)
         {
+            Default();
             levelclick = true;
             sudoku = new Plansza();
             sudoku.Delete(Random(53, 60));
@@ -241,6 +264,7 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelHard_Click(object sender, RoutedEventArgs e)
         {
+            Default();
             levelclick = true;
             sudoku = new Plansza();
             sudoku.Delete(Random(61, 64));
@@ -262,6 +286,7 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelEasy_Click(object sender, RoutedEventArgs e)
         {
+            Default();
             levelclick = true;
             sudoku = new Plansza();
             sudoku.Delete(Random(46, 52));

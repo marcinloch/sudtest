@@ -23,7 +23,11 @@ namespace Sudoku
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Metoda zmieniająca teskt na język polski
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void P_click(object sender, RoutedEventArgs e)
         {
 
@@ -31,7 +35,11 @@ namespace Sudoku
             two.FontWeight = FontWeights.Bold;
             two.Text = "Sudoku-łamigłówka, której celem jest wypełnienie diagramu 9 × 9 w taki sposób, aby w każdym wierszu, w każdej kolumnie i w każdym z dziewięciu pogrubionych kwadratów 3 × 3 znalazło się po jednej cyfrze od 1 do 9.";
         }
-
+        /// <summary>
+        /// Metoda zmieniajaca tekst na język angielski 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void E_click(object sender, RoutedEventArgs e)
         {
             
