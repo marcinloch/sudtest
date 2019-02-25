@@ -14,10 +14,10 @@ namespace Sudoku
         public int[,] tab = new int[9, 9];
         public int[,] sud = new int[9, 9];
         static Random rnd = new Random();
-        Queue<int> xy = new Queue<int>();
-        Queue<int> blok = new Queue<int>();
-        Queue<int> horizontal = new Queue<int>();
-        Queue<int> vertical = new Queue<int>();
+        internal Queue<int> xy = new Queue<int>();
+        internal Queue<int> blok = new Queue<int>();
+        internal Queue<int> horizontal = new Queue<int>();
+        internal Queue<int> vertical = new Queue<int>();
 
         /// <summary>
         /// Konstruktor klasy
@@ -162,7 +162,7 @@ namespace Sudoku
         /// Metoda generująca losowe liczby 1-9
         /// </summary>
         /// <returns>(int)1-9</returns>
-        private int Random()
+        internal int Random()
         {
             return rnd.Next(1, 10);
         }
@@ -187,7 +187,7 @@ namespace Sudoku
         /// </summary>
         /// <param name="x">Współrzędna "x" w tablicy wylosowanego pola</param>
         /// <param name="y">Współrzędna "y" w tablicy wylosowanego pola</param>
-        private void HorVerQ(int x, int y)
+        internal void HorVerQ(int x, int y)
         {
 
             for (int i = 0; i < 9; i++)
@@ -201,7 +201,7 @@ namespace Sudoku
         /// </summary>
         /// <param name="x">Współrzędna "x" w tablicy wylosowanego pola</param>
         /// <param name="y">Współrzędna "y" w tablicy wylosowanego pola</param>
-        private void Block3x3Q(int x, int y)
+        internal void Block3x3Q(int x, int y)
         {
 
             int a = x - (x % 3);
@@ -248,7 +248,7 @@ namespace Sudoku
          /// <param name="x">Współrzędna "x" w tablicy wylosowanego pola</param>
          /// <param name="y">Współrzędna "y" w tablicy wylosowanego pola</param>
          /// <param name="temp">Potencjalna liczba do usunięcia z sudoku</param>
-        private void BlocksHorVer(int x, int y, int temp)
+        internal void BlocksHorVer(int x, int y, int temp)
         {
             int a = x - (x % 3);
             int b = y - (y % 3);

@@ -32,6 +32,7 @@ namespace Sudoku
         private int ss, mm, hh;
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
         Plansza sudoku = new Plansza();
+        bool levelclick = false;
 
         public MainWindow()
         {
@@ -84,15 +85,33 @@ namespace Sudoku
 
         }
         /// <summary>
-        /// Metoda 
+        /// Metoda sprawdzająca czy sudoku zostało uzupełnione poprawnie. Jezeli sudoku jest uzupełnione poprawnie zatrzymuje stoper.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void Koniec_click(object sender, RoutedEventArgs e)
         {
-            StopTimer();
-            if (CheckingGoodFit() == true)
-                MessageBox.Show("You win.\nCongratulations.");
+            if (levelclick == true)
+            {
+                if (CheckingGoodFit() == true)
+                {
+                    StopTimer();
+                    line1.Stroke = Brushes.Green;
+                    line2.Stroke = Brushes.Green;
+                    line3.Stroke = Brushes.Green;
+                    line4.Stroke = Brushes.Green;
+                    TestWynik.Content = "Gratulacje !";
+                    levelclick = false;
+                }
+                else
+                {
+                    line1.Stroke = Brushes.Red;
+                    line2.Stroke = Brushes.Red;
+                    line3.Stroke = Brushes.Red;
+                    line4.Stroke = Brushes.Red;
+                    TestWynik.Content = "Coś jest nie tak";
+                }
+            }
         }
         /// <summary>
         /// Metoda sprawdzająca czy pola zostały poprawnie uzupełnione
@@ -202,6 +221,8 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelMedium_Click(object sender, RoutedEventArgs e)
         {
+            levelclick = true;
+            sudoku = new Plansza();
             sudoku.Delete(Random(53, 60));
             InitBoard();
             dispatcherTimer.Start();
@@ -220,6 +241,8 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelHard_Click(object sender, RoutedEventArgs e)
         {
+            levelclick = true;
+            sudoku = new Plansza();
             sudoku.Delete(Random(61, 64));
             InitBoard();
             dispatcherTimer.Start();
@@ -239,6 +262,8 @@ namespace Sudoku
         /// <param name="e"></param>
         private void LevelEasy_Click(object sender, RoutedEventArgs e)
         {
+            levelclick = true;
+            sudoku = new Plansza();
             sudoku.Delete(Random(46, 52));
             InitBoard();
             dispatcherTimer.Start();

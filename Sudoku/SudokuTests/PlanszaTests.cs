@@ -93,6 +93,105 @@ namespace Sudoku.Tests
             }
             Assert.AreEqual(level, ile);
         }
+        [TestMethod]
+        public void RandomTest_Czy_Metoda_Random_w_planszy_losuje_odpowiednie_liczby()
+        {
+            Plansza target = new Plansza();
+
+            Assert.IsTrue(target.Random() >= 1 && target.Random() <= 9);
+        }
+        [TestMethod]
+        public void HorVerQTest_Czy_zostaly_dodane_prawidlowe_liczby_do_kolejki_xy()
+        {
+            bool actual = true;
+            int a = 1;
+            Plansza target = new Plansza();
+            target.HorVerQ(2, 5);
+
+            for (int j = 0; j < 9; j++)
+            {
+                if (target.xy.Peek() != target.sud[j, 5])
+                    actual = false;
+                target.xy.Enqueue(target.xy.Peek());
+                target.xy.Dequeue();
+                if (target.xy.Peek() != target.sud[2, j])
+                    actual = false;
+                target.xy.Enqueue(target.xy.Peek());
+                target.xy.Dequeue();
+
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void Block3x3QTest_Czy_zostaly_dodane_prawidlowe_liczby_do_kolejki_blok()
+        {
+            bool actual = true;
+            Plansza target = new Plansza();
+            target.Block3x3Q(2, 5);
+
+            int a = 2 - (2 % 3);
+            int b = 5 - (5 % 3);
+            for (int i = a; i <= a + 2; i++)
+            {
+                for (int j = b; j <= b + 2; j++)
+                {
+                    if (target.blok.Peek() != target.sud[i, j])
+                        actual = false;
+                    target.blok.Enqueue(target.blok.Peek());
+                    target.blok.Dequeue();
+                }
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void BlocksHorVerTest_Kolejka_horizontal_czy_prawidlowe_liczby()
+        {
+            bool actual = true;
+            Plansza target = new Plansza();
+            target.BlocksHorVer(7, 8, 4);
+
+            int a = 7 - (7 % 3);
+            for (int i = a; i <= a + 2; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (a != i)
+                    {
+                        if (target.horizontal.Peek() != target.sud[i, j])
+                            actual = false;
+                        target.horizontal.Enqueue(target.horizontal.Peek());
+                        target.horizontal.Dequeue();
+                    }
+                }
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void BlocksHorVerTest_Kolejka_vertical_czy_prawidlowe_liczby()
+        {
+            bool actual = true;
+            Plansza target = new Plansza();
+            target.BlocksHorVer(7, 8, 4);
+
+            int a = 8 - (8 % 3);
+            for (int i = a; i <= a + 2; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (a != i)
+                    {
+                        if (target.vertical.Peek() != target.sud[i, j])
+                            actual = false;
+                        target.vertical.Enqueue(target.vertical.Peek());
+                        target.vertical.Dequeue();
+                    }
+                }
+            }
+            Assert.IsTrue(actual);
+        }
+
     }
-    
+
+
+
 }
